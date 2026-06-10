@@ -1,0 +1,178 @@
+================================================================
+ DevPulse — COMPLETE GIT SETUP & COMMIT COMMANDS (Windows CMD)
+ Run these in order. All from inside the devpulse\ folder.
+================================================================
+
+────────────────────────────────────────────────────────────────
+PART 1 — FIRST TIME SETUP (run once)
+────────────────────────────────────────────────────────────────
+
+REM 1. Create project folder and enter it
+mkdir devpulse
+cd devpulse
+
+REM 2. Initialize git
+git init
+git branch -M main
+
+REM 3. Set default identity (Arush = project lead)
+git config user.name "arushkumar-aiml"
+git config user.email "arushkumar-aiml@users.noreply.github.com"
+
+────────────────────────────────────────────────────────────────
+PART 2 — CREATE ALL FILES
+────────────────────────────────────────────────────────────────
+
+REM Copy all code files into the folder structure manually,
+REM then proceed to commits below.
+
+────────────────────────────────────────────────────────────────
+PART 3 — ARUSH COMMITS (scaffold + agent + frontend)
+────────────────────────────────────────────────────────────────
+
+git config user.name "arushkumar-aiml"
+git config user.email "arushkumar-aiml@users.noreply.github.com"
+
+git add .gitignore
+git add requirements.txt
+git add README.md
+git add LICENSE
+git add .env.example
+git add agent\__init__.py
+git add modules\__init__.py
+git add .github\workflows\deploy.yml
+git commit -m "feat: initial project scaffold, CI/CD pipeline, and architecture"
+
+────────────────────────────────────────────────────────────────
+PART 4 — ADEEL COMMITS (contribution_analyzer.py)
+────────────────────────────────────────────────────────────────
+
+git config user.name "adeelad726"
+git config user.email "adeelad726@gmail.com"
+
+git add modules\contribution_analyzer.py
+git add tests\test_contribution_analyzer.py
+git commit -m "feat(analyzer): add GitLab contribution analyzer with per-user scoring"
+
+────────────────────────────────────────────────────────────────
+PART 5 — AYUSHI COMMITS (standup_generator.py)
+────────────────────────────────────────────────────────────────
+
+git config user.name "ayushishuklaME"
+git config user.email "ayushishuklaME@users.noreply.github.com"
+
+git add modules\standup_generator.py
+git add tests\test_standup_generator.py
+git commit -m "feat(standup): add Gemini-powered AI daily standup generator"
+
+────────────────────────────────────────────────────────────────
+PART 6 — ANIKET COMMITS (blocker_detection.py)
+────────────────────────────────────────────────────────────────
+
+git config user.name "aniketgit-hub101"
+git config user.email "aniketgit-hub101@users.noreply.github.com"
+
+git add modules\blocker_detection.py
+git add tests\test_blocker_detection.py
+git commit -m "feat(blockers): add stale PR, failed pipeline, unassigned issue detector"
+
+────────────────────────────────────────────────────────────────
+PART 7 — ABHAY COMMITS (action_executor.py)
+────────────────────────────────────────────────────────────────
+
+git config user.name "abhyashukla16"
+git config user.email "abhyashukla16@users.noreply.github.com"
+
+git add modules\action_executor.py
+git add tests\test_action_executor.py
+git commit -m "feat(actions): add GitLab MCP action executor - create/assign/comment"
+
+────────────────────────────────────────────────────────────────
+PART 8 — ARUSH COMMITS AGENT + FRONTEND
+────────────────────────────────────────────────────────────────
+
+git config user.name "arushkumar-aiml"
+git config user.email "arushkumar-aiml@users.noreply.github.com"
+
+git add agent\main.py
+git add agent\server.py
+git commit -m "feat(agent): add LangGraph 5-node orchestrator and FastAPI backend"
+
+git add frontend\
+git commit -m "feat(frontend): add React+Vite dark terminal dashboard with Fix It button"
+
+────────────────────────────────────────────────────────────────
+PART 9 — CONNECT REMOTE AND PUSH
+────────────────────────────────────────────────────────────────
+
+REM REPLACE: YOUR_PAT = your GitHub Personal Access Token
+REM REPLACE: YOUR_USERNAME = your GitHub username
+REM (Create an empty repo called "devpulse" on GitHub first — NO README)
+
+git remote add origin https://YOUR_PAT@github.com/YOUR_USERNAME/devpulse.git
+git push -u origin main
+
+────────────────────────────────────────────────────────────────
+PART 10 — VERIFY CONTRIBUTORS
+────────────────────────────────────────────────────────────────
+
+REM After push, check:
+REM https://github.com/YOUR_USERNAME/devpulse/graphs/contributors
+REM You should see 5 contributor avatars.
+
+REM Check commit log:
+git log --oneline --all
+
+────────────────────────────────────────────────────────────────
+PART 11 — FRONTEND DEPLOY (GitHub Pages)
+────────────────────────────────────────────────────────────────
+
+REM On GitHub:
+REM 1. Go to repo Settings → Pages
+REM 2. Source: GitHub Actions
+REM 3. Add secret: VITE_API_URL = https://your-backend-url.com
+REM 4. Push to main → auto deploys frontend
+
+────────────────────────────────────────────────────────────────
+PART 12 — RUN BACKEND LOCALLY
+────────────────────────────────────────────────────────────────
+
+REM Install Python deps (Python 3.13)
+pip install -r requirements.txt
+
+REM Copy .env.example to .env and fill in your keys
+copy .env.example .env
+
+REM Run backend
+cd agent
+python -m uvicorn server:app --reload --port 8000
+
+REM Run frontend (separate CMD window)
+cd frontend
+npm install
+npm run dev
+
+REM Open: http://localhost:5173
+
+────────────────────────────────────────────────────────────────
+QUICK IDENTITY SWITCH REFERENCE
+────────────────────────────────────────────────────────────────
+
+REM Arush:
+git config user.name "arushkumar-aiml" && git config user.email "arushkumar-aiml@users.noreply.github.com"
+
+REM Adeel:
+git config user.name "adeelad726" && git config user.email "adeelad726@gmail.com"
+
+REM Ayushi:
+git config user.name "ayushishuklaME" && git config user.email "ayushishuklaME@users.noreply.github.com"
+
+REM Aniket:
+git config user.name "aniketgit-hub101" && git config user.email "aniketgit-hub101@users.noreply.github.com"
+
+REM Abhay:
+git config user.name "abhyashukla16" && git config user.email "abhyashukla16@users.noreply.github.com"
+
+================================================================
+ ALL DONE! 5 contributors, 8 commits, 1 winning project 🏆
+================================================================

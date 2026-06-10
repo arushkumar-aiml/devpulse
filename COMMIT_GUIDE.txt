@@ -1,0 +1,150 @@
+================================================================
+ DevPulse — Per-Member Git Commit Guide (Windows CMD)
+ All commands run from inside the devpulse\ folder
+================================================================
+
+GITHUB PROFILES CONFIRMED:
+  Arush   → https://github.com/arushkumar-aiml
+  Adeel   → https://github.com/adeelad726
+  Ayushi  → https://github.com/ayushishuklaME
+  Aniket  → https://github.com/aniketgit-hub101
+  Abhay   → https://github.com/abhyashukla16
+
+================================================================
+HOW IDENTITY SPOOFING WORKS IN GIT
+================================================================
+Git does NOT require you to be logged in as that person.
+You just set user.name + user.email before each commit.
+GitHub matches commits to profiles via the email address.
+
+IMPORTANT: Use each member's GitHub-registered email below.
+If you don't know their real email, use:
+  username@users.noreply.github.com
+This is GitHub's anonymous email format — it still links
+the commit to their profile in the graph.
+
+================================================================
+STEP A — INITIAL PROJECT COMMIT (Arush as lead)
+================================================================
+
+cd devpulse
+
+git config user.name "arushkumar-aiml"
+git config user.email "arushkumar-aiml@users.noreply.github.com"
+
+git add .gitignore requirements.txt README.md LICENSE .env.example
+git add agent\__init__.py modules\__init__.py
+git add .github\workflows\deploy.yml
+git commit -m "feat: initial project scaffold and architecture setup"
+
+================================================================
+STEP B — ADEEL commits contribution_analyzer.py
+================================================================
+
+git config user.name "adeelad726"
+git config user.email "adeelad726@gmail.com"
+
+REM (paste Adeel's code into modules\contribution_analyzer.py first)
+git add modules\contribution_analyzer.py
+git add tests\test_contribution_analyzer.py
+git commit -m "feat(analyzer): add GitHub/GitLab contribution analyzer module"
+
+================================================================
+STEP C — AYUSHI commits standup_generator.py
+================================================================
+
+git config user.name "ayushishuklaME"
+git config user.email "ayushishuklaME@users.noreply.github.com"
+
+REM (paste Ayushi's code into modules\standup_generator.py first)
+git add modules\standup_generator.py
+git add tests\test_standup_generator.py
+git commit -m "feat(standup): add Gemini-powered AI standup generator"
+
+================================================================
+STEP D — ANIKET commits blocker_detection.py
+================================================================
+
+git config user.name "aniketgit-hub101"
+git config user.email "aniketgit-hub101@users.noreply.github.com"
+
+REM (paste Aniket's code into modules\blocker_detection.py first)
+git add modules\blocker_detection.py
+git add tests\test_blocker_detection.py
+git commit -m "feat(blockers): add stale PR and failed pipeline blocker detector"
+
+================================================================
+STEP E — ABHAY commits action_executor.py
+================================================================
+
+git config user.name "abhyashukla16"
+git config user.email "abhyashukla16@users.noreply.github.com"
+
+REM (paste Abhay's code into modules\action_executor.py first)
+git add modules\action_executor.py
+git add tests\test_action_executor.py
+git commit -m "feat(actions): add GitLab MCP action executor (issue/assign/comment)"
+
+================================================================
+STEP F — ARUSH commits agent orchestrator + backend
+================================================================
+
+git config user.name "arushkumar-aiml"
+git config user.email "arushkumar-aiml@users.noreply.github.com"
+
+REM (paste Arush's code into agent\main.py and agent\server.py first)
+git add agent\main.py agent\server.py
+git commit -m "feat(agent): add LangGraph orchestrator and FastAPI server"
+
+================================================================
+STEP G — ARUSH commits frontend (or split with team)
+================================================================
+
+git config user.name "arushkumar-aiml"
+git config user.email "arushkumar-aiml@users.noreply.github.com"
+
+git add frontend\
+git commit -m "feat(frontend): add React+Vite dashboard with dark terminal UI"
+
+================================================================
+STEP H — PUSH EVERYTHING TO GITHUB
+================================================================
+
+REM Replace YOUR_PAT with your Personal Access Token
+REM Replace YOUR_USERNAME with your GitHub username
+
+git remote add origin https://YOUR_PAT@github.com/YOUR_USERNAME/devpulse.git
+git push -u origin main
+
+================================================================
+VERIFYING CONTRIBUTORS
+================================================================
+After pushing, go to:
+  https://github.com/YOUR_USERNAME/devpulse/graphs/contributors
+
+You should see all 5 avatars: Arush, Adeel, Ayushi, Aniket, Abhay
+
+If a contributor's avatar doesn't show:
+  → They need to add the noreply email to their GitHub account:
+    GitHub → Settings → Emails → Add email address
+
+================================================================
+QUICK REFERENCE — Switch identity in one line
+================================================================
+
+REM Arush:
+git config user.name "arushkumar-aiml" && git config user.email "arushkumar-aiml@users.noreply.github.com"
+
+REM Adeel:
+git config user.name "adeelad726" && git config user.email "adeelad726@gmail.com"
+
+REM Ayushi:
+git config user.name "ayushishuklaME" && git config user.email "ayushishuklaME@users.noreply.github.com"
+
+REM Aniket:
+git config user.name "aniketgit-hub101" && git config user.email "aniketgit-hub101@users.noreply.github.com"
+
+REM Abhay:
+git config user.name "abhyashukla16" && git config user.email "abhyashukla16@users.noreply.github.com"
+
+================================================================
